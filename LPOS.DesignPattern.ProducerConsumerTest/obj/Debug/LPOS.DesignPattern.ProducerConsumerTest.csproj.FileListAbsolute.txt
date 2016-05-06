@@ -1,0 +1,14 @@
+G:\LPOS\LPOS\LPOS.DesignPattern.ProducerConsumerTest\bin\Debug\LPOS.DesignPattern.ProducerConsumerTest.exe.config
+G:\LPOS\LPOS\LPOS.DesignPattern.ProducerConsumerTest\bin\Debug\LPOS.DesignPattern.ProducerConsumerTest.exe
+G:\LPOS\LPOS\LPOS.DesignPattern.ProducerConsumerTest\bin\Debug\LPOS.DesignPattern.ProducerConsumerTest.pdb
+G:\LPOS\LPOS\LPOS.DesignPattern.ProducerConsumerTest\bin\Debug\LPOS.DesignPattern.ProducerConsumer.dll
+G:\LPOS\LPOS\LPOS.DesignPattern.ProducerConsumerTest\bin\Debug\LPOS.DesignPattern.ProducerConsumer.pdb
+G:\LPOS\LPOS\LPOS.DesignPattern.ProducerConsumerTest\obj\Debug\LPOS.DesignPattern.ProducerConsumerTest.csprojResolveAssemblyReference.cache
+G:\LPOS\LPOS\LPOS.DesignPattern.ProducerConsumerTest\obj\Debug\LPOS.DesignPattern.ProducerConsumerTest.exe
+G:\LPOS\LPOS\LPOS.DesignPattern.ProducerConsumerTest\obj\Debug\LPOS.DesignPattern.ProducerConsumerTest.pdb
+G:\LPOS\LPOS.DesignPattern.ProducerConsumerTest\bin\Debug\LPOS.DesignPattern.ProducerConsumerTest.exe.config
+G:\LPOS\LPOS.DesignPattern.ProducerConsumerTest\obj\Debug\LPOS.DesignPattern.ProducerConsumerTest.exe
+G:\LPOS\LPOS.DesignPattern.ProducerConsumerTest\obj\Debug\LPOS.DesignPattern.ProducerConsumerTest.pdb
+G:\LPOS\LPOS.DesignPattern.ProducerConsumerPattern\LPOS.DesignPattern.ProducerConsumerTest\bin\Debug\LPOS.DesignPattern.ProducerConsumerTest.exe.config
+G:\LPOS\LPOS.DesignPattern.ProducerConsumerPattern\LPOS.DesignPattern.ProducerConsumerTest\obj\Debug\LPOS.DesignPattern.ProducerConsumerTest.exe
+G:\LPOS\LPOS.DesignPattern.ProducerConsumerPattern\LPOS.DesignPattern.ProducerConsumerTest\obj\Debug\LPOS.DesignPattern.ProducerConsumerTest.pdb
