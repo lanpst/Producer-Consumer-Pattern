@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace LPOS.DesignPattern.ProducerConsumer
 {
@@ -33,27 +34,31 @@ namespace LPOS.DesignPattern.ProducerConsumer
         {
             var producer = new Producer<T>(name);
 
-            producer.Produce = new ProduceHandler(Produce);
+            producer.Produce = new ProduceHandler(this.Produce);
 
             return producer;
         }
 
         private void Produce(T product)
         {
+            System.Console.WriteLine($"Producer with {product.ToString()}"
+                + "\t" + System.Threading.Thread.CurrentThread.ManagedThreadId);
+
             queue.Enqueue(product);
 
-            TryConsume();
+            TryMethod();
         }
+        
+        object lockObj = new object();
 
-        bool isTrying = false;
-        private void TryConsume()
+        private async Task TryMethod()
         {
-            if (!isTrying)
+            await Task.Run(() =>
             {
-                isTrying = true;
-
-                var actTryConsume = new Action(() =>
+                if (System.Threading.Monitor.TryEnter(lockObj))
                 {
+                    System.Console.WriteLine($"lock on {queue.Count}");
+
                     while (queue.Count > 0)
                     {
                         var freeConsumers = consumers.Where(q => !q.IsBusy);
@@ -68,25 +73,17 @@ namespace LPOS.DesignPattern.ProducerConsumer
 
                                 consumer.SetBusy();
 
-                                var actConsume = new Action<T>(consumer.StartConsume);
-
-                                actConsume.BeginInvoke(product, (ar) =>
-                                {
-                                    (ar.AsyncState as Action<T>).EndInvoke(ar);
-                                }, actConsume);
+                                consumer.StartConsume(product);
                             }
                         }
                         System.Threading.Thread.Sleep(0);
                     }
-                });
-                actTryConsume.BeginInvoke((ar) =>
-                {
-                    (ar.AsyncState as Action).EndInvoke(ar);
 
-                    isTrying = false;
-
-                }, actTryConsume);
-            }
+                    System.Console.WriteLine($"lock off {queue.Count}");
+                    System.Threading.Monitor.Exit(lockObj);
+                }
+            });
+            
         }
     }
 }

@@ -12,10 +12,14 @@ namespace LPOS.DesignPattern.ProducerConsumer
 
         internal void StartConsume(T product)
         {
-            Consume(product);
+            Task.Run(() =>
+            {
+                Consume(product);
 
-            this.isBusy = false;
+                this.isBusy = false;
+            });
         }
+
         bool isBusy = false;
         internal bool IsBusy
         {

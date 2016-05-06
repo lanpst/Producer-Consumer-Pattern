@@ -3,3 +3,8 @@ G:\LPOS\LPOS\LPOS.DesignPattern.ProducerConsumer\bin\Debug\LPOS.DesignPattern.Pr
 G:\LPOS\LPOS\LPOS.DesignPattern.ProducerConsumer\obj\Debug\LPOS.DesignPattern.ProducerConsumer.csprojResolveAssemblyReference.cache
 G:\LPOS\LPOS\LPOS.DesignPattern.ProducerConsumer\obj\Debug\LPOS.DesignPattern.ProducerConsumer.dll
 G:\LPOS\LPOS\LPOS.DesignPattern.ProducerConsumer\obj\Debug\LPOS.DesignPattern.ProducerConsumer.pdb
+G:\LPOS\LPOS.DesignPattern.ProducerConsumerPattern\LPOS.DesignPattern.ProducerConsumer\bin\Debug\LPOS.DesignPattern.ProducerConsumer.dll
+G:\LPOS\LPOS.DesignPattern.ProducerConsumerPattern\LPOS.DesignPattern.ProducerConsumer\bin\Debug\LPOS.DesignPattern.ProducerConsumer.pdb
+G:\LPOS\LPOS.DesignPattern.ProducerConsumerPattern\LPOS.DesignPattern.ProducerConsumer\obj\Debug\LPOS.DesignPattern.ProducerConsumer.csprojResolveAssemblyReference.cache
+G:\LPOS\LPOS.DesignPattern.ProducerConsumerPattern\LPOS.DesignPattern.ProducerConsumer\obj\Debug\LPOS.DesignPattern.ProducerConsumer.dll
+G:\LPOS\LPOS.DesignPattern.ProducerConsumerPattern\LPOS.DesignPattern.ProducerConsumer\obj\Debug\LPOS.DesignPattern.ProducerConsumer.pdb

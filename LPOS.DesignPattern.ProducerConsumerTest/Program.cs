@@ -11,56 +11,59 @@ namespace LPOS.DesignPattern.ProducerConsumer
         static void Main(string[] args)
         {
             ProducerConsumerPatternTester tester = new ProducerConsumerPatternTester();
+
             tester.StartTest();
+
             System.Console.ReadKey();
         }
-
-        public class ProducerConsumerPatternTester
+    }
+    public class LocalConsumer : Consumer<int>
+    {
+        string name;
+        public LocalConsumer(string name)
         {
-            ProducerConsumerStation<int> pcp;
-            public void StartTest()
-            {
-                pcp = new ProducerConsumerStation<int>();
-                pcp.AddConsumer(new LocalConsumer("consumer1"));
-                pcp.AddConsumer(new LocalConsumer("consumer2"));
-                pcp.AddConsumer(new LocalConsumer("consumer3"));
-                pcp.AddConsumer(new LocalConsumer("consumer4"));
-                var producer1 = pcp.NewProducer("producer1");
-                var producer2 = pcp.NewProducer("producer2");
-
-                var act = new Action<IProducer<int>, int>((IProducer<int> p, int q) =>
-                {
-                    for (int i = 1; i <= 100; i++)
-                    {
-                        p.Produce(i * q);
-
-                        System.Console.WriteLine($"Producer ({p.Name}) with {i * q}");
-
-                        System.Threading.Thread.Sleep(100);
-                    }
-                });
-
-                act.BeginInvoke(producer1, 1, null, null);
-
-                act.BeginInvoke(producer2, 100, null, null);
-
-            }
+            this.name = name;
         }
 
-        public class LocalConsumer : Consumer<int>
+        public override void Consume(int produce)
         {
-            string name;
-            public LocalConsumer(string name)
-            {
-                this.name = name;
-            }
+            System.Console.WriteLine($"Start Consumer {this.name.ToString()} with {produce}"
+                    + "\t" + System.Threading.Thread.CurrentThread.ManagedThreadId);
 
-            public override void Consume(int produce)
-            {
-                System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(1000);
 
-                System.Console.WriteLine($"Consumer ({name}) with {produce.ToString()}");
-            }
+            System.Console.WriteLine($"Finish Consumer {this.name.ToString()} with {produce}"
+                    + "\t" + System.Threading.Thread.CurrentThread.ManagedThreadId);
+        }
+    }
+
+    public class ProducerConsumerPatternTester
+    {
+        ProducerConsumerStation<int> pcp;
+        public void StartTest()
+        {
+            pcp = new ProducerConsumerStation<int>();
+            pcp.AddConsumer(new LocalConsumer("consumer1"));
+            pcp.AddConsumer(new LocalConsumer("consumer2"));
+            pcp.AddConsumer(new LocalConsumer("consumer3"));
+
+            ProduceAsync(pcp.NewProducer("producer1"), 1);
+            
+            ProduceAsync(pcp.NewProducer("producer2"), 1000);
+
+        }
+
+        private async Task ProduceAsync(IProducer<int> producer, int startValue)
+        {
+            Task.Run(() =>
+            {
+                for (int i = 1; i <= 50; i++)
+                {
+                    producer.Produce(i * startValue);
+
+                    System.Threading.Thread.Sleep(100);
+                }
+            });
         }
     }
 }
